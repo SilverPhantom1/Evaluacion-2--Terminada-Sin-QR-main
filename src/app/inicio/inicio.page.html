@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <img src="assets/duoc-uc.jpeg" alt="">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+    <ion-card-header>
+      Lista de alumnos
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list *ngIf="alumnos && alumnos.length > 0">
+        <ion-item *ngFor="let alumno of alumnos" [routerLink]="['/datos-persona', alumno.id]">
+          <ion-label>{{ alumno.nombre }}</ion-label>
+          <ion-label>{{ alumno.apellido}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      - Programacion de Aplicaciones Moviles
+    </ion-card-header>
+
+    <ion-card-content>
+      <button color="light" (click)="generarQR('Programacion')">Generar Código QR</button>
+      <qrcode [qrdata]="codigoQRProgramacion" [width]="200" [allowEmptyString]="true" *ngIf="codigoQRGenerado && asignaturaSeleccionada === 'Programacion'"></qrcode>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-header>
+      - Gestión de Personas
+    </ion-card-header>
+  
+    <ion-card-content>
+      <button color="light" (click)="generarQR('Gestion')">Generar Código QR</button>
+      <qrcode [qrdata]="codigoQRGestion" [width]="200" [allowEmptyString]="true" *ngIf="codigoQRGenerado && asignaturaSeleccionada === 'Gestion'"></qrcode>
+    </ion-card-content>
+  </ion-card>
+  <br>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button><ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button href="https://my-json-server.typicode.com/SilverPhantom1/json-server"><ion-icon name="layers-outline"></ion-icon></ion-fab-button>
+      <ion-fab-button href="https://www.duoc.cl/sedes/plaza-oeste/?gad_source=1&gclid=CjwKCAiAg9urBhB_EiwAgw88mdhSF9XJDgdRbYyv6uOJcMewLFv_acLWMxsCg56EsQHJnEz6n7NXghoC5FcQAvD_BwE"><ion-icon name="home-outline"></ion-icon></ion-fab-button>
+      <ion-fab-button href="https://www.instagram.com/duocuc_cl/?hl=es"><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title>Sede: Plaza Oeste</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

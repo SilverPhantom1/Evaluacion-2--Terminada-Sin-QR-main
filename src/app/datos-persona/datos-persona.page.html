@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Datos del Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>ID:  {{alumno.id}}</ion-card-subtitle>
+      <ion-card-title>Nombre: {{alumno.nombre}} {{alumno.apellido}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <strong>Usuario: {{alumno.usuario}}</strong>
+      <br>
+      <strong>Seccion: {{alumno.seccion}}</strong>
+      <br>
+      <strong>Asignaturas: {{alumno.asignaturas}}</strong>
+    </ion-card-content>
+
+
+  </ion-card>
+</ion-content>
